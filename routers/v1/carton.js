@@ -7,9 +7,6 @@ module.exports.register = (app) => {
 
   // GET BY
   app.get("/api/carton/trailer/:id", method.getByTrailerNumber);
-  // app.get("/api/carton/trailer/:id", () => {
-  //   res.status(httpStatusCodes.OK).json({'id': 1, 'description': 'caro'})
-  // });
 
   // POST
   app.post("/api/carton", method.post);

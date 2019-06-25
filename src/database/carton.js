@@ -1,6 +1,7 @@
 const sql = require('mssql');
 const secrets = require('../../common/secrets');
 
+// GET using mmsql QUERY
 const _get = async () => {
   try {
     const config = await secrets.dbConfig;
@@ -17,6 +18,7 @@ const _get = async () => {
   }
 }
 
+// GET using mmsql EXECUTE
 const _getByTrailerNumber = async (id) => {
   try {
     const config = await secrets.dbConfig;

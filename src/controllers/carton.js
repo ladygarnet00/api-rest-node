@@ -3,13 +3,13 @@ const data = require('../database/carton');
 const httpStatusCodes = require('http-status');
 
 
+// GET without params. 
 const _get = async (req, res, next) => {
   res.setHeader('Content-type', 'application/json');
   
   const error = '';
 
   try {
-    //const id = req.params.id;
 
     const result = await data.get();
 
@@ -27,6 +27,7 @@ const _get = async (req, res, next) => {
   }
 }
 
+// GET with params
 const _getByTrailerNumber = async (req, res, next) => {
 
   res.setHeader('Content-type', 'application/json');
