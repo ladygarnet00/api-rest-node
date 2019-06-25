@@ -34,7 +34,7 @@ const _getByTrailerNumber = async (req, res, next) => {
   const error = '';
 
   try {
-    const id = req.params.id
+    const id = req.params.id 
 
     const result = await data.getByTrailerNumber(id);
 
