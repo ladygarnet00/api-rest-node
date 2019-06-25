@@ -19,7 +19,32 @@ const _get = async (req, res, next) => {
       return;
     }
 
-    res.json(httpStatusCodes.OK, result);
+    res.status(httpStatusCodes.OK).json(result)
+    res.end();
+    return;
+  } catch (err) {
+    console.log(err);
+  }
+}
+
+const _getByTrailerNumber = async (req, res, next) => {
+
+  res.setHeader('Content-type', 'application/json');
+  
+  const error = '';
+
+  try {
+    const id = req.params.id
+
+    const result = await data.getByTrailerNumber(id);
+
+    if (result.length === 0) {
+      res.writeHead(httpStatusCodes.NOT_FOUND);
+      res.end();
+      return;
+    }
+
+    res.status(httpStatusCodes.OK).json(result)
     res.end();
     return;
   } catch (err) {
@@ -51,6 +76,7 @@ const _delete = async (req, res, next) => {
 
 module.exports = {
   get: _get,
+  getByTrailerNumber: _getByTrailerNumber,
   post: _post,
   put: _put,
   delete: _delete
